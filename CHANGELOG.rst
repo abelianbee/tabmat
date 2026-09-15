@@ -12,6 +12,7 @@ Changelog
 
 **Other changes:**
 
+- :func:`from_pandas` now builds its sparse block directly from pandas sparse columns instead of densifying them first, which makes construction much faster and uses memory proportional to the number of stored values rather than to the full block. Sparse columns whose fill value is not 0 are now stored as dense with a warning, since :class:`SparseMatrix` only represents a fill value of 0.
 - We disabled fast math to avoid invalid results (e.g., when dividing by zero).
 
 
